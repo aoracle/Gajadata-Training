@@ -1,0 +1,48 @@
+Backend error message during job submission
+-------------------------------------------
+org.apache.pig.backend.executionengine.ExecException: ERROR 2118: Input path does not exist: hdfs://namenode:54310/home/hadoop/data/air_traffic
+	at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigInputFormat.getSplits(PigInputFormat.java:285)
+	at org.apache.hadoop.mapred.JobClient.writeNewSplits(JobClient.java:962)
+	at org.apache.hadoop.mapred.JobClient.writeSplits(JobClient.java:979)
+	at org.apache.hadoop.mapred.JobClient.access$600(JobClient.java:174)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:897)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:850)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1121)
+	at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:850)
+	at org.apache.hadoop.mapred.JobClient.submitJob(JobClient.java:824)
+	at org.apache.hadoop.mapred.jobcontrol.Job.submit(Job.java:378)
+	at org.apache.hadoop.mapred.jobcontrol.JobControl.startReadyJobs(JobControl.java:247)
+	at org.apache.hadoop.mapred.jobcontrol.JobControl.run(JobControl.java:279)
+	at java.lang.Thread.run(Thread.java:722)
+	at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher$1.run(MapReduceLauncher.java:260)
+Caused by: org.apache.hadoop.mapreduce.lib.input.InvalidInputException: Input path does not exist: hdfs://namenode:54310/home/hadoop/data/air_traffic
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.listStatus(FileInputFormat.java:235)
+	at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigTextInputFormat.listStatus(PigTextInputFormat.java:36)
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.getSplits(FileInputFormat.java:252)
+	at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigInputFormat.getSplits(PigInputFormat.java:273)
+	... 15 more
+
+Pig Stack Trace
+---------------
+ERROR 1066: Unable to open iterator for alias Air_traffic
+
+org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1066: Unable to open iterator for alias Air_traffic
+	at org.apache.pig.PigServer.openIterator(PigServer.java:857)
+	at org.apache.pig.tools.grunt.GruntParser.processDump(GruntParser.java:682)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:303)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:189)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:165)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:69)
+	at org.apache.pig.Main.run(Main.java:490)
+	at org.apache.pig.Main.main(Main.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:156)
+Caused by: java.io.IOException: Job terminated with anomalous status FAILED
+	at org.apache.pig.PigServer.openIterator(PigServer.java:849)
+	... 12 more
+================================================================================
