@@ -1,0 +1,2 @@
+Welcome to Hadoop Hands On Lab
+Hands On Lab using Word Count Search
