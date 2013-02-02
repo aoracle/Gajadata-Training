@@ -1,5 +1,5 @@
 #!/bin/bash
-export SAMPLEHOME=${HOME}/examples/MapReduce/AirTraffic
+export SAMPLEHOME=${HOME}/Gajadata-Training/labs/mapreduce/AirTraffic
 export INPUTDIR=${SAMPLEHOME}/data/input
 export OUTPUTDIR=${SAMPLEHOME}/data/output
 export DFSINPUT=${SAMPLEHOME}/data/input/dfsinput
