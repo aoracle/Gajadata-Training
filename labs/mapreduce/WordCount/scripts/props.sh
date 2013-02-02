@@ -1,5 +1,5 @@
 #!/bin/bash
-export SAMPLEHOME=${HOME}/examples/MapReduce/WordCount
+export SAMPLEHOME=${HOME}/mapreduce_scripts/WordCount
 export INPUTDIR=${SAMPLEHOME}/data/input
 export OUTPUTDIR=${SAMPLEHOME}/data/output
 export DFSINPUT=${SAMPLEHOME}/data/input/dfsinput
